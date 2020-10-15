@@ -5,6 +5,7 @@
 from argparser import parser
 from autocompile import autocompile
 from autorun import autoRun
+from collections import defaultdict
 # from argparse import ArgumentParser, REMAINDER
 
 commands = {'compile': autocompile, 'run': autoRun}
@@ -19,8 +20,9 @@ commands = {'compile': autocompile, 'run': autoRun}
 
 args = parser.parse_args()
 if (args.command in commands):
-  commands[args.command](args=args.args)
+  options = defaultdict(lambda: None,{'input': args.input, 'output': args.output})
+  commands[args.command](args.program, args.args, options=options)
 else:
   print('Unknown command', args.command)
 
-print("found args: ", args.args)
+print("found args: ", args)
