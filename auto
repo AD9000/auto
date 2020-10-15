@@ -2,9 +2,9 @@
 
 # main file for running other stuff
 # from argparser import parser
-from argparser import parser
-from autocompile import autocompile
-from autorun import autoRun
+from src.argparser import parser
+from src.autocompile import autocompile
+from src.autorun import autoRun
 from collections import defaultdict
 # from argparse import ArgumentParser, REMAINDER
 

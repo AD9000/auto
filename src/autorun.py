@@ -3,7 +3,7 @@
 from subprocess import Popen, PIPE, run
 import sys
 import os
-from autocompile import autocompile
+from src.autocompile import autocompile
 from collections import defaultdict
 
 
