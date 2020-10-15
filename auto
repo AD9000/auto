@@ -1,28 +1,21 @@
 #!/usr/bin/env python3
 
 # main file for running other stuff
-# from argparser import parser
 from src.argparser import parser
 from src.autocompile import autocompile
 from src.autorun import autoRun
 from collections import defaultdict
-# from argparse import ArgumentParser, REMAINDER
 
 commands = {'compile': autocompile, 'run': autoRun}
 
-# parser = ArgumentParser(description="Your best friend when it comes to competitive programming")
-
-# print('yeet')
-# parser.add_argument('run', nargs=REMAINDER)
-# x = parser.parse_args(['test.c', '-o', 'test'])
-# # x = parser.parse_known_args()
-# print(x)
-
 args = parser.parse_args()
 if (args.command in commands):
-  options = defaultdict(lambda: None,{'input': args.input, 'output': args.output})
-  commands[args.command](args.program, args.args, options=options)
-else:
-  print('Unknown command', args.command)
+    options = defaultdict(
+        lambda: None, {'input': args.input, 'output': args.output})
 
-print("found args: ", args)
+    progArgs = args.args if args.args else []
+    commands[args.command](args.program, progArgs, options=options)
+else:
+    print('Unknown command', args.command)
+
+# print("found args: ", args)
