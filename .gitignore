@@ -1,0 +1,6 @@
+__pycache__/
+makefile
+*.out
+*.c
+
+test
